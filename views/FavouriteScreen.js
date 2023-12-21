@@ -27,13 +27,16 @@ const FavouriteScreen = () => {
     return (
         <View style={styles.container}>
             {favourites.length > 0 ? (
-                <FlatList
-                    data={favourites}
-                    keyExtractor={item => item.idMeal.toString()}
-                    renderItem={renderFavouriteItem}
-                />
+                <View>
+                    <Text style={styles.FavouritesText}>Danh sách yêu thích</Text>
+                    <FlatList
+                        data={favourites}
+                        keyExtractor={item => item.idMeal.toString()}
+                        renderItem={renderFavouriteItem}
+                    />
+                </View>
             ) : (
-                <Text style={styles.noFavouritesText}>Chưa có món ăn yêu thích nào.</Text>
+                <Text style={styles.FavouritesText}>Chưa có món ăn yêu thích nào!!!</Text>
             )}
         </View>
     );
@@ -42,7 +45,7 @@ const FavouriteScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 10,
+        padding: 30,
         backgroundColor: 'white',
     },
     itemContainer: {
@@ -61,10 +64,13 @@ const styles = StyleSheet.create({
     itemText: {
         fontSize: 18,
     },
-    noFavouritesText: {
+    FavouritesText: {
         fontSize: 20,
         textAlign: 'center',
         marginTop: 20,
+        fontWeight: 'bold',
+        color: 'red',
+
     },
 });
 
