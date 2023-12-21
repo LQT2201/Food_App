@@ -10,12 +10,12 @@ const Stack = createNativeStackNavigator();
 
 function HomeNavigation() {
   return (
-    
-      <Stack.Navigator initialRouteName='HomepageView' screenOptions={{headerShown: false}}>
-        <Stack.Screen name="HomepageView" component={HomepageView} />
-        <Stack.Screen name="RecipeDetail" options={{presentation: 'fullScreenModal'}} component={RecipeDetail} />
-      </Stack.Navigator>
-    
+
+    <Stack.Navigator initialRouteName='HomepageView' screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="HomepageView" component={HomepageView} />
+      <Stack.Screen name="RecipeDetail" options={{ presentation: 'fullScreenModal' }} component={RecipeDetail} />
+    </Stack.Navigator>
+
   );
 }
 
