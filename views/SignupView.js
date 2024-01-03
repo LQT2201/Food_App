@@ -1,14 +1,19 @@
 
-import React from 'react';
-import { View, Text, SafeAreaView, Button, StyleSheet, Image, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, SafeAreaView, Button, StyleSheet, Image, TextInput, TouchableOpacity, ImageBackground, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-
+import { FirebaseApp } from '../components/Firebase';
 // 21522461 -- Nguyễn Văn Phong
 
 const SignupView = ({ navigation }) => {
+
+
     const gotoLogin = () => {
         navigation.replace('Login');
     }
+
+
+
     return (
         <ImageBackground
             source={require('../assets/background.png')}
@@ -22,11 +27,11 @@ const SignupView = ({ navigation }) => {
                     </View>
                     <View style={styles.signup_infor}>
                         <Ionicons name="mail-outline" style={{ fontSize: 18 }}></Ionicons>
-                        <TextInput placeholder='Enter email' style={{ marginLeft: 10 }} ></TextInput>
+                        <TextInput placeholder='Enter email' style={{ marginLeft: 10 }} value={email} onChangeText={setEmail}></TextInput>
                     </View>
                     <View style={styles.signup_infor}>
                         <Ionicons name="lock-closed-outline" style={{ fontSize: 18 }}></Ionicons>
-                        <TextInput placeholder='Enter password' secureTextEntry={true} style={{ marginLeft: 10 }} ></TextInput>
+                        <TextInput placeholder='Enter password' secureTextEntry={true} style={{ marginLeft: 10 }} value={password} onChangeText={setPassword} ></TextInput>
                     </View>
                     <View style={styles.signup_infor}>
                         <Ionicons name="lock-closed-outline" style={{ fontSize: 18 }}></Ionicons>
@@ -34,7 +39,7 @@ const SignupView = ({ navigation }) => {
                     </View>
                 </View>
                 <View style={styles.button_display}>
-                    <TouchableOpacity style={styles.button_option}>
+                    <TouchableOpacity style={styles.button_option} >
                         <Text style={styles.button_option_content}
                         >Create</Text>
                     </TouchableOpacity>
